@@ -1,11 +1,13 @@
 var express = require('express')
+,  http = require('http')
+,  path = require('path')
 ,  routes = require('./routes')
 ,  socket = require('./routes/socket.js')
-,  styles = require('stylus')
+,  stylus = require('stylus')
 ;
 
-var app = module.exports = express();
-var server = require('http').createServer(app);
+var app = express();
+var server = http.createServer(app);
 var io = require('socket.io').listen(server);
 
 app.configure(function(){
@@ -15,11 +17,11 @@ app.configure(function(){
   app.use(express.favicon());
   app.use(express.bodyParser());
   app.use(express.methodOverride());
-  app.use(express.cookieParser('your secret here'));
+  app.use(express.cookieParser('Brisk Secretions'));
   app.use(express.session());
+  app.use(stylus.middleware(__dirname + '/public'));
+  app.use(express.static(path.join(__dirname, 'public')));
   app.use(app.router);
-  app.use(require('stylus').middleware(__dirname + '/public'));
-  app.use(express.static(__dirname + '/public'));
 });
 app.configure('development', function(){
   app.use(express.errorHandler({ dumpExceptions: true, showStack: true }));
