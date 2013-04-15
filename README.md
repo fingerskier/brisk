@@ -1,44 +1,30 @@
-# Angular Socket.io Seed
+# Brisk web-app seed
 
-Start an awesome app with AngularJS on the front, Socket.io + Express + Node on the back. This
-project is an application skeleton for writing [AngularJS](http://angularjs.org/) apps that use
-web sockets to add real-time functionality. If you're not planning on using web sockets, you
-should consider the [Angular Express Seed](https://github.com/btford/angular-express-seed) instead.
+The goal is to make spool-up of new, real-time web-apps as simple as possible.  This project is an ExpressJS app utilizing Jade & Stylus, AngularJS, and Firebase for the back-end (via angularfire).  Firebase + angularfire means automatic synchronization of the Angular model (the parts you specify) with Firebase.
 
-The seed contains angular libraries, test libraries and a bunch of scripts all preconfigured for
-instant web development gratification. Just clone the repo (or download the zip/tarball) and
-you're ready to develop your application.
-
-The seed app shows how to wire together Angular client-side components with Socket.io and Express
-on the server. It also illustrates writing angular partials/views with the Jade templating library.
-
-_Note: Although Jade supports interpolation, you should be doing that mostly on the client. Mixing
-server and browser templating will convolute your app. Instead, use Jade as a syntactic sugar for
-HTML, and let AngularJS take care of interpolation on the browser side._
+Kudos to anantn for angularfire (awesome); and bennadel for inspiring the routing method.
 
 ## How to use it
 
-Clone the angular-socket-io-seed repository and start hacking!
+Clone the brisk repository and start hacking!
 
-### Running the app
-
-Runs like a typical express app:
+Run the app in the typical express fashion:
 
     node app.js
 
-### Running tests
+Run tests or scenarios by hitting these URLs:
 
-Coming soon!
+http://localhost:3000/specs
+    http://localhost:3000/scenarios
 
-### Receiving updates from upstream
+### Sending/Receiving data from Firebase
 
-Just fetch the changes and merge them into your project with git.
+Angularfire handles this for you!  Refer to it's documentation for details...it super-simple!
+https://github.com/firebase/angularFire
 
 ## Example Application
 
-I created a [simple instant messaging application](https://github.com/btford/angular-socket-io-im)
-and wrote a [blog post](http://briantford.com/blog/angular-socket-io.html) walking through the app to
-illustrate using the seed.
+This is an example single-page app including a sample Bootstrap layout, a chat mode, and use accounts.  It has a simple Angular router and support functions built-in.
 
 ## Directory Layout
     
@@ -46,10 +32,10 @@ illustrate using the seed.
     package.json        --> for npm
     public/             --> all of the files to be used in on the client side
       css/              --> css files
-        app.css         --> default stylesheet
+        *.styl          --> stylesheets get processed into similarly named .css files
       img/              --> image files
       js/               --> javascript files
-        app.js          --> declare top-level app module
+        application.js  --> declare top-level app module
         controllers.js  --> application controllers
         directives.js   --> custom angular directives
         filters.js      --> custom angular filters
@@ -66,13 +52,22 @@ illustrate using the seed.
       index.jade        --> main page for app
       layout.jade       --> doctype, title, head boilerplate
       partials/         --> angular view partials (partial jade templates)
-        partial1.jade
-        partial2.jade
 
 
+## Patterns
+
+Building up a single-page app is straightforward with Jade includes.  You can hide views using <ng-switch> (exemplified in index.jade).  It's certainly possible to run multiple pages, each "root" page should extend layout.jade.
+By default the router supports 3-tier URLs: /root/branch/leaf.  It's possible to extend this arbitrarily but I don't see the need myself.
+
+## Other Resources
+
+Bootstrap
+AngularUI
+AngularStrap
 
 ## Contact
 
 For more information on AngularJS please check out http://angularjs.org/
-For more on Express and Jade, http://expressjs.com/ and http://jade-lang.com/ are
-your friends.
+For more on Express, Jade, and Stylus, http://expressjs.com, http://jade-lang.com, and http://learnboost.github.io/stylus are
+the place(s) to go.
+The most excellent Firebase docs are here: https://www.firebase.com/docs

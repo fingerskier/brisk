@@ -1,22 +1,30 @@
-`!!!
-html(ng-app="myApp")
+!!!
+html(ng-app="brisk")
 	head
 		meta(charset='utf8')
 		base(href='/')
 		title Angular Socket.io Seed App
-		link(rel='stylesheet', href='/lib/bootstrap/css/bootstrap.css')
-		link(rel='stylesheet', href='/lib/bootstrap/css/bootstrap-responsive.css')
+		//- link(rel='stylesheet', href='//netdna.bootstrapcdn.com/twitter-bootstrap/2.3.1/css/bootstrap-combined.min.css')
+		link(rel='stylesheet', href='/css/main.css')
 		link(rel='stylesheet', href='/css/main.css')
 
+		//- script(src='//cdn.firebase.com/v0/firebase.js')
+		//- script(src='//cdn.firebase.com/v0/firebase-auth-client.js')
+		//- script(src='http://code.jquery.com/jquery-1.9.1.min.js')
+		//- script(src='//netdna.bootstrapcdn.com/twitter-bootstrap/2.3.1/js/bootstrap.min.js')
+		//- script(src='//ajax.googleapis.com/ajax/libs/angularjs/1.0.6/angular.min.js')
+		script(src='lib/firebase/firebase.js')
+		script(src='lib/firebase/firebase-auth-client.js')
 		script(src='lib/jquery/jquery.js')
-		script(src='lib/jquery/jquery-ui.js')
-		script(src='lib/bootstrap/bootstrap.js')
+		script(src='lib/bootstrap/js/bootstrap.js')
 		script(src='lib/angular/angular.js')
-		script(src='/socket.io/socket.io.js')
+
 		script(src='js/application.js')
 		script(src='js/services.js')
 		script(src='js/controllers.js')
 		script(src='js/filters.js')
 		script(src='js/directives.js')
+
 	body
+		include header
 		block body
