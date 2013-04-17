@@ -3,10 +3,10 @@ html(ng-app="brisk")
 	head
 		meta(charset='utf8')
 		base(href='/')
-		title Angular Socket.io Seed App
+		title Brisk Seed App
 		//- link(rel='stylesheet', href='//netdna.bootstrapcdn.com/twitter-bootstrap/2.3.1/css/bootstrap-combined.min.css')
-		link(rel='stylesheet', href='/css/main.css')
-		link(rel='stylesheet', href='/css/main.css')
+		link(rel='stylesheet', href='lib/bootstrap/css/bootstrap.css')
+		link(rel='stylesheet', href='css/main.css')
 
 		//- script(src='//cdn.firebase.com/v0/firebase.js')
 		//- script(src='//cdn.firebase.com/v0/firebase-auth-client.js')
@@ -15,9 +15,10 @@ html(ng-app="brisk")
 		//- script(src='//ajax.googleapis.com/ajax/libs/angularjs/1.0.6/angular.min.js')
 		script(src='lib/firebase/firebase.js')
 		script(src='lib/firebase/firebase-auth-client.js')
-		script(src='lib/jquery/jquery.js')
+		script(src='lib/jquery/js/jquery.js')
 		script(src='lib/bootstrap/js/bootstrap.js')
 		script(src='lib/angular/angular.js')
+		script(src='lib/angular/angularFire.js')
 
 		script(src='js/application.js')
 		script(src='js/services.js')
@@ -25,6 +26,8 @@ html(ng-app="brisk")
 		script(src='js/filters.js')
 		script(src='js/directives.js')
 
-	body
+	body(ng-controller="AppCtrl")
 		include header
 		block body
+		#versionPanel.alert.alert-success
+			| brisk seed app: v{{app.version}}

@@ -1,6 +1,8 @@
 extends layout
 
-block body
-  div
-    | brisk seed app: v
-    span(app-version)
+h1 the index page
+
+|{{news}}
+
+ul.alert.alert-info(fade-after="3", ng-repeat="item in news")
+	li {{item}}

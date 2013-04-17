@@ -1,0 +1,28 @@
+.navbar.navbar-inverse(style='position: static;')
+  .navbar-inner
+    .container
+      a.brand(href='#') Title
+      ul.nav
+        li.active
+          a(href='/') Home
+        li
+          a(href='/chat') Chat
+        li.dropdown
+          a.dropdown-toggle(href='#', data-toggle='dropdown')
+            | Stuff
+            b.caret
+          ul.dropdown-menu
+            li
+              a(href='#') Action
+            li
+              a(href='#') Another action
+            li
+              a(href='#') Something else here
+            li.divider
+            li.nav-header Nav header
+            li
+              a(href='#') Separated link
+            li
+              a(href='#') One more separated link
+      ng-form.navbar-search.pull-left(action='')
+        input.search-query.span2(type='text', placeholder='your e-mail')
