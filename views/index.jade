@@ -1,8 +1,9 @@
 extends layout
 
-h1 the index page
+block body
+	h1 The Latest News
 
-|{{news}}
-
-ul.alert.alert-info(fade-after="3", ng-repeat="item in news")
-	li {{item}}
+	ul.alert.alert-info(fade-after="3", ng-repeat="(blurb,text) in news")
+		li {{blurb}}
+		br
+		|{{text}}

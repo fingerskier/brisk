@@ -13,6 +13,7 @@ config(['$routeProvider', '$locationProvider', function($routeProvider, $locatio
 .run(function(AppData, $location, $log, News, $rootScope) {
 	$rootScope.app = {};
 	$rootScope.news = {};
+	$rootScope.user = {};
 
 	$rootScope.navigate = function(path) {
 		$location.path(path);
